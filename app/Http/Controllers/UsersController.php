@@ -33,7 +33,8 @@ class UsersController extends Controller
 			'user_name' => ['required', 'string', 'max:255'],
 			'user_password' => ['required', 'string', 'min:6', 'confirmed'],
 		];
-		$Validation = $this->validate($request, $rules);
+
+		$this->validate($request, $rules);
 
 		$AuthUserRow = Auth::user();
 		if ($request->user_profile_photo != null) {
