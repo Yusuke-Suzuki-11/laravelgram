@@ -42,14 +42,9 @@ class UsersController extends Controller
 		}
 
 		$AuthUserRow->password = bcrypt($request->user_password);
+		$AuthUserRow->name = $request->user_name;
+		$AuthUserRow->save();
 
-		
-
-
-
-
-
-		dd("test");
-		exit;
+		return redirect(route('users.show', Auth::user()->id));
 	}
 }
