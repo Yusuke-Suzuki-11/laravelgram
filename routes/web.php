@@ -26,3 +26,6 @@ Route::post('/users/update', 'UsersController@update')->name('users.update');
 
 Route::get('/likes/posts/{post_id}', 'LikesController@store')->name('likes.store');
 Route::get('/likes/delete/{like_id}', 'LikesController@delete')->name('likes.delete');
+
+Route::post('/comments/{comment_id}/store','CommentsController@store')->name('comments.store');
+Route::get('/comments/{comment_id}/delete', 'CommentsController@delete')->name('comments.delete');
