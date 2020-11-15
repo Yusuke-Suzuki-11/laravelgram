@@ -13,10 +13,11 @@ class PostsController extends Controller
 	{
 		$this->middleware('auth');
 	}
-	
+
 	public function index()
 	{
-		return view('post.index');
+		$posts = Post::limit(10)->orderBy('created_at', 'desc')->get();
+		return view('post.index', ['posts' => $posts]);
 	}
 
 	public function new()
@@ -42,6 +43,17 @@ class PostsController extends Controller
 		$post->save();
 
 		$request->photo->storeAs('public/post_images', $post->id . '.jpg');
+		return redirect('/');
+	}
+
+	public function delete($postId)
+	{
+		$PostRow = Post::where("user_id", Auth::user()->id)->find($postId);
+		dd($PostRow);
+		exit;
+		$PostRow = Post::find($postId);
+		$post = Post::find($postId);
+		$post->delete();
 		return redirect('/');
 	}
 }

@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/new', 'PostsController@new')->name('posts.new');
 Route::post('/posts/store', 'PostsController@store')->name('posts.store');
+Route::post('posts/delete/{user_id}', 'PostsController@delete')->name('posts.delete');
 
 Route::get('/users/{user_id}', 'UsersController@show')->name('users.show');
 Route::get('/users/edit/{user_id}', 'UsersController@edit')->name('users.edit');
