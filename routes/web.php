@@ -23,3 +23,6 @@ Route::post('posts/delete/{user_id}', 'PostsController@delete')->name('posts.del
 Route::get('/users/{user_id}', 'UsersController@show')->name('users.show');
 Route::get('/users/edit/{user_id}', 'UsersController@edit')->name('users.edit');
 Route::post('/users/update', 'UsersController@update')->name('users.update');
+
+Route::get('/likes/posts/{post_id}', 'LikesController@store')->name('likes.store');
+Route::get('/likes/delete/{like_id}', 'LikesController@delete')->name('likes.delete');

@@ -19,9 +19,9 @@
 			<strong>{{ $post->user->name }}</strong>
 		  </a>
 		@if ($post->user->id == Auth::user()->id)
-			<form name="form_name" method="POST" action="{{route('posts.delete', $post->id)}}">
+			<form name="form_name{{$post->id}}" method="POST" action="{{route('posts.delete', $post->id)}}">
 				@csrf
-				<a class="ml-auto mx-0 my-auto" rel="nofollow" href="javascript:form_name.submit()">
+				<a class="ml-auto mx-0 my-auto" rel="nofollow" href="javascript:form_name{{$post->id}}.submit()">
 					<div class="delete-post-icon">
 					</div>
 				</a>
